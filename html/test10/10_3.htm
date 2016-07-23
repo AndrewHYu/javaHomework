@@ -1,0 +1,49 @@
+﻿<html>
+<head>
+<title>开发实战练习1</title>
+</head>
+<body>
+	<form action="" method="post" onsubmit="return check(this)">
+		雇员编号：<input type="text" name="id" size="2" maxlength="2"><br>
+		雇员姓名：<input type="text" name="username"><br>
+		性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<input type="radio" name="sex"
+			value="男" checked>男 <input type="radio" name="sex" value="女">女<br>
+		部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门：<input type="text" name="job"
+			size="10" maxlength="15"> <br> 雇佣日期：<input type="text"
+			name="date" size="10" maxlength="10" value="yyyymmdd"><br>
+		基本工资：<input type="text" name="salary" size="10" maxlength="10"><br>
+		奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金：<input type="text" name="prize"
+			size="5" maxlength="10"><br> <input type="submit"
+			value="登入"><input type="reset" value="重置">
+	</form>
+	<script lang="JavaScript">
+	function check(form){
+		if(!/\d+/.test(form.id.value)){
+			alert("编号只能为数字！");
+			return false;
+		}
+		if(form.username.value.length==0){
+			alert("姓名不能为空!");
+			return false;
+		}
+		if(form.job.value.length==0){
+			alert("工作不能为空！");
+			return false;
+		}
+		if(!/\d{4}\-\d\d\-\d\d/.test(form.date.value)){
+			alert("日期格式错误！");
+			return false;
+		}
+		if(!/\d+\.?\d+/.test(form.salary.value)){
+			alert("工资格式错误！");
+			return false;
+		}
+		if(!/\d+(\.\d+)?/.test(form.prize.value)){
+			alert("奖金格式错误！");
+			return false;
+		}
+		return true;
+	}
+	</script>
+</body>
+</html>
